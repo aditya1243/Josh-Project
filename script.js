@@ -22,8 +22,21 @@ foodItems.forEach(item => {
     foodItem.innerHTML = `
         <img src="${item.image}" alt="${item.name}">
         <div class="food-item-info">
+        <div class="food-meta">
             <h3>${item.name}</h3>
             <p class="price">${item.price}</p>
+            </div>
+            <div class="food-meta">
+                <div class="rating">
+                    <span>⭐4.7</span>
+                </div>
+                <div class="delivery-time">
+                    <span>[50-60 min]</span>
+                </div>
+                <div class="add-to-cart">
+                    <button>+</button>
+                </div>
+            </div>
         </div>
     `;
     foodGrid.appendChild(foodItem);
@@ -48,6 +61,8 @@ function closeModal(modal) {
 
 cartIcon.addEventListener('click', () => openModal(cartModal));
 requestDishBtn.addEventListener('click', () => openModal(requestDishModal));
+
+
 
 modalCloseButtons.forEach(button => {
     button.addEventListener('click', () => {

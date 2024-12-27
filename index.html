@@ -18,10 +18,10 @@
                 <li><a href="#blog">Blog</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="cart-icon" id="cartIcon">
+            <div class="cart-icon">
                 <img src="assets/search.svg" alt="Search"> 
                 &nbsp; &nbsp; &nbsp;
-                <img src="assets/cart.svg" alt="Cart">
+                <img src="assets/cart.svg"id="cartIcon" alt="Cart">
             </div>
         </nav>
     </header>
@@ -56,70 +56,111 @@
             </div>
         </section>
         
+        <!-- New Section with Centered Button -->
+        <section class="center-button-section">
+            <button class="center-button request-dish-btn">Request a Dish</button>
+        </section>
+        
+        
+        
+        
+        
 
         <section class="video-section">
-            <div>
-                <h1 style="text-align: center;">We are providing best </h1>
-                <h1 style="text-align: center;"> cooked food delivery service.</h1>
-                <h6 style="text-align: center; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Away from home and craving the tasty homemade recipes? </h6>
-                <h6 style="text-align: center; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
-                ;">Choose from a selection of our delicious home cooked dishes </h6>
+            <div class="video-text">
+                <h1>We are providing the best <br> home cooked food delivery service.</h1>
+                <p>Away from home and craving tasty homemade recipes?<br> Choose from a selection of our delicious home-cooked dishes.</p>
             </div>
             <div class="video-container">
-                <video id="promo-video" poster="assets/row.png">
-                    <source src="assets/promo.mp4" type="video/mp4">
-                </video>
-                <!-- <button class="play-pause-btn">
-                    <img src="assets/play.svg" alt="Play">
-                </button>-->
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Contact Us</h3>
-                <p>Email: support@jtgeats.com</p>
-                <p>Phone: (555) 123-4567</p>
-            </div>
-            <div class="footer-section">
-                <h3>Follow Us</h3>
-                <div class="social-links">
-                    <a href="#"><img src="assets/facebook.svg" alt="Facebook"></a>
-                    <a href="#"><img src="assets/twitter.svg" alt="Twitter"></a>
-                    <a href="#"><img src="assets/instagram.svg" alt="Instagram"></a>
+                <div class="video-wrapper">
+                    <video id="promo-video" poster="assets/row.png">
+                        <source src="assets/promo.mp4" type="video/mp4">
+                    </video>
+                    <!--<button class="play-pause-btn">
+                        <img src="assets/play.svg" alt="Play">
+                    </button>-->
                 </div>
             </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="contact-container">
+                <div class="contact-form">
+                    <h2>Do you have a question <br>or want to become a seller?</h2>
+                    <p>Fill this form and our manager will contact you in the next 48 hours.</p>
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <input type="text" placeholder="Your Name" required>
+                            <input type="email" placeholder="Your e-mail" required>
+                        </div>
+                        <textarea placeholder="Your message" rows="5" required></textarea>
+                        <button type="submit" class="submit-btn">Submit</button>
+                    </form>
+                </div>
+                <div class="contact-illustration">
+                    <img src="assets/rider.svg" alt="Delivery Illustration">
+                </div>
+            </div>
+        </section>
+        
+        
+    </main>
+
+    <footer class="custom-footer">
+        <div class="footer-logo">JTGeats</div>
+        <nav class="footer-nav">
+            <ul class="footer-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="footer-social">
+            <a href="#"><img src="assets/Facebook.svg" alt="Facebook"></a>
+            <a href="#"><img src="assets/iconoir_add-to-cart.svg  " alt="Instagram"></a>
         </div>
     </footer>
+    
 
-    <!-- Cart Modal -->
-    <!-- Cart Modal -->
+  <!-- Cart Modal -->
 <div class="modal" id="cartModal">
     <div class="modal-content">
-        <h2>Cart</h2>
-        <p>Cart is Empty</p>
-        <button class="modal-close" onclick="redirectToHome()">Back to Menu</button>
+        <div class="modal-icon">
+            <img src="assets/akar-icons_shopping-bag.svg" alt="Empty Cart Icon">
+        </div>
+        <h2>Cart is Empty</h2>
+        <p>Add some items to the cart to checkout</p>
+        <button class="modal-button" onclick="redirectToHome()">Back to Menu</button>
     </div>
 </div>
 
 
-    <!-- Request Dish Modal -->
-    <div class="modal" id="requestDishModal">
-        <div class="modal-content">
-            <h2>Request a Dish</h2>
-            <form id="requestForm">
-                <input type="text" placeholder="Name" required>
-                <input type="email" placeholder="Email" required>
-                <textarea placeholder="Dish Description" required></textarea>
-                <div class="modal-buttons">
-                    <button type="button" class="modal-close">Cancel</button>
-                    <button type="submit">Submit Request</button>
-                </div>
-            </form>
-        </div>
+
+<!-- Request a Dish Modal -->
+<div class="modal" id="requestDishModal">
+    <div class="modal-content">
+        <h2>Request a Dish</h2>
+        <form id="requestForm">
+            <!-- Name input with title -->
+            <label for="dishName">Name*</label>
+            <input type="text" id="dishName" placeholder="Enter name of the dish" required>
+
+            <!-- Image upload input with title -->
+            <label for="imagePath">Upload an Image</label>
+            <input type="text" id="imagePath" placeholder="Paste a URL" required>
+
+            <!-- Modal buttons -->
+            <div class="modal-buttons">
+                <button type="button" class="modal-close cancel-btn">Cancel</button>
+                <button type="submit" class="submit-btn">Submit Request</button>
+            </div>
+        </form>
     </div>
+</div>
+
+    
 
     <script src="script.js"></script>
 </body>
