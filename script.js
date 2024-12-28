@@ -90,7 +90,7 @@ requestForm.addEventListener('submit', (e) => {
 
 // Function to redirect to the home page
 function redirectToHome() {
-    window.location.href = '/index.html'; // Change '/' to the appropriate path if necessary
+    window.location.href = '/index.html'; 
 }
 
 function renderCarouselItems() {
@@ -135,7 +135,7 @@ function renderCarouselItems() {
 }
 
 let currentIndex = 0;
-const itemWidth = 33.33; // percentage width of each item including gap
+const itemWidth = 33.33; 
 
 function updateCarousel() {
     const track = document.querySelector('.popular-carousel-track');
