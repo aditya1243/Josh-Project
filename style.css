@@ -369,14 +369,13 @@ body {
     background: white;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
+    transition: transform 0.3s,  box-shadow 0.3s;
 }
 
 /* 2 */
 
 .item-discount-badge {
     position: absolute;
-    
     background: var(--highlight-yellow);
     color: white;
     padding: 4px 8px;
@@ -387,9 +386,10 @@ body {
 
 .popular-carousel-item img {
     width: 100%;
-    height: 200px;
+    height: 220px;
     object-fit: cover;
     border-radius: 8px 8px 0 0;
+    
 }
 
 .item-details {
@@ -441,7 +441,7 @@ body {
     position: relative;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 40px; 
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -479,11 +479,17 @@ body {
     z-index: 2;
 }
 
-/* 3 */
+
+.popular-items {
+    padding: 40px 20px; 
+    background-color: #f9f9f9; 
+}
+
 .popular-carousel-container {
     flex: 1;
     overflow: hidden;
     position: relative;
+    padding-bottom: 20px; 
 }
 
 /* 4 */
@@ -498,7 +504,7 @@ body {
 
 .popular-carousel-track {
     display: flex;
-    gap: 20px;
+    gap: 30px;
     transition: transform 0.3s ease;
 }
 
@@ -512,8 +518,10 @@ body {
     
 }
 
-.popular-carousel-item:hover{
-    transform: scale(1.05);
+.popular-carousel-item.active {
+    transform: scale(1.10);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+    z-index: 2; 
 }
 
 
@@ -765,21 +773,28 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.6); 
     border: none;
     border-radius: 50%;
     padding: 20px;
     cursor: pointer;
     transition: transform 0.3s ease;
-}
-
-.play-pause-btn:hover {
-    transform: translate(-50%, -50%) scale(1.1); 
+    display: none; /* Hidden by default */
+    z-index: 2; /* Ensure it appears above the video */
 }
 
 .play-pause-btn img {
-    width: 32px;
-    height: 32px;
+    width: 100px;
+    height: 100px;
+}
+
+.play-pause-btn.show {
+    display: flex; /* Show the play button when needed */
+    justify-content: center;
+    align-items: center;
+}
+
+.play-pause-btn:hover {
+    transform: translate(-50%, -50%) scale(1.1); /* Slight zoom on hover */
 }
 
 /*contact section*/

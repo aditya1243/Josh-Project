@@ -97,49 +97,55 @@ function renderCarouselItems() {
     const track = document.querySelector('.popular-carousel-track');
     track.innerHTML = '';
 
-    const items = [
-        { name: 'Home made pizza', price: '₹190', rating: 4.7, time: '50-79 min', image: 'assets/pizza.jpg' },
-        { name: 'Tandoori Chicken', price: '₹184', rating: 4.3, time: '15-29 min', image: 'assets/tandoori.jpg' },
-        { name: 'Chilli Chicken', price: '₹116', rating: 4.1, time: '30-40 min', image: 'assets/chilli.jpg' },
-        { name: 'Butter Chicken', price: '₹220', rating: 4.5, time: '25-35 min', image: 'assets/butter.jpg' },
-        { name: 'Paneer Tikka', price: '₹180', rating: 4.2, time: '20-30 min', image: 'assets/paneer.jpg' }
-    ];
-
     foodItems.forEach((item, index) => {
         const itemElement = document.createElement('div');
         itemElement.className = 'popular-carousel-item';
         itemElement.innerHTML = `
             <div class="item-discount-badge">${index % 2 === 0 ? '20%' : '50%'}</div>
-        <img src="${item.image}" alt="${item.name}">
-        
-        <div class="food-item-info">
-            <h3>${item.name}</h3>
-            <p class="price">${item.price}</p>
-        </div>
-        <div class="food-meta">
-            <div class="rating">
-                <img src="assets/rating.png" alt="Rating" class="icon">
+            <img src="${item.image}" alt="${item.name}">
+            <div class="food-item-info">
+                <h3>${item.name}</h3>
+                <p class="price">${item.price}</p>
             </div>
-            <div class="delivery-time">
-                <h3>(${item.time})</h3>
+            <div class="food-meta">
+                <div class="rating">
+                    <img src="assets/rating.png" alt="Rating" class="icon">
+                </div>
+                <div class="delivery-time">
+                    <h3>(${item.time})</h3>
+                </div>
+                <div class="add-to-cart">
+                    <button>
+                        <img src="assets/plus.jpg" alt="Add to Cart" class="icon">
+                    </button>
+                </div>
             </div>
-            <div class="add-to-cart">
-                <button>
-                    <img src="assets/plus.jpg" alt="Add to Cart" class="icon">
-                </button>
-            </div>
-        </div>
-    `;
+        `;
         track.appendChild(itemElement);
     });
+
+    // Highlight the middle card initially
+    updateActiveCard();
 }
 
 let currentIndex = 0;
-const itemWidth = 33.33; 
+const itemWidth = 33.33; // Percentage width of a carousel item
 
-function updateCarousel() {
+/*function updateCarousel() {
     const track = document.querySelector('.popular-carousel-track');
     track.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
+    updateActiveCard(); // Update the active card
+}
+
+function updateActiveCard() {
+    const items = document.querySelectorAll('.popular-carousel-item');
+    items.forEach(item => item.classList.remove('active'));
+
+    // Calculate the middle card index
+    const middleIndex = currentIndex + 1; // Assuming 3 cards are visible, the middle one is currentIndex + 1
+    if (items[middleIndex]) {
+        items[middleIndex].classList.add('active');
+    }
 }
 
 document.querySelector('.popular-carousel-btn.next').addEventListener('click', () => {
@@ -160,3 +166,87 @@ document.querySelector('.popular-carousel-btn.prev').addEventListener('click', (
 // Initialize carousel
 renderCarouselItems();
 updateCarousel();
+*/
+function updateActiveCard() {
+    const items = document.querySelectorAll('.popular-carousel-item');
+    items.forEach(item => item.classList.remove('active'));
+
+    // Calculate the middle card index
+    const middleIndex = currentIndex + 1; // Assuming 3 cards are visible, the middle one is currentIndex + 1
+    if (items[middleIndex]) {
+        items[middleIndex].classList.add('active');
+    }
+}
+
+function updateCarousel() {
+    const track = document.querySelector('.popular-carousel-track');
+    const items = document.querySelectorAll('.popular-carousel-item');
+    
+    // Remove active class from all items
+    items.forEach((item) => item.classList.remove('active'));
+    
+    // Calculate the middle card and add the active class
+    const middleIndex = currentIndex + 1; // Assuming 3 cards are visible, the second card is the middle one
+    if (items[middleIndex]) {
+        items[middleIndex].classList.add('active');
+    }
+
+    // Update the transform for the track
+    track.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
+}
+
+// Initialize the carousel
+renderCarouselItems();
+updateCarousel();
+
+// Add event listeners for navigation buttons
+document.querySelector('.popular-carousel-btn.next').addEventListener('click', () => {
+    const totalItems = document.querySelectorAll('.popular-carousel-item').length;
+    if (currentIndex < totalItems - 3) {
+        currentIndex++;
+        updateCarousel();
+    }
+});
+
+document.querySelector('.popular-carousel-btn.prev').addEventListener('click', () => {
+    if (currentIndex > 0) {
+        currentIndex--;
+        updateCarousel();
+    }
+});
+
+
+const video = document.getElementById('promo-video');
+const playPauseBtn = document.getElementById('playPauseBtn');
+
+// Toggle play/pause on video click
+video.addEventListener('click', () => {
+    if (video.paused) {
+        video.play();
+        playPauseBtn.classList.remove('show'); // Hide play button
+    } else {
+        video.pause();
+        playPauseBtn.classList.add('show'); // Show play button
+    }
+});
+
+// Play/pause video on play button click
+playPauseBtn.addEventListener('click', () => {
+    if (video.paused) {
+        video.play();
+        playPauseBtn.classList.remove('show'); // Hide play button
+    } else {
+        video.pause();
+        playPauseBtn.classList.add('show'); // Show play button
+    }
+});
+
+// Show play button when video is paused
+video.addEventListener('pause', () => {
+    playPauseBtn.classList.add('show');
+});
+
+// Hide play button when video is playing
+video.addEventListener('play', () => {
+    playPauseBtn.classList.remove('show');
+});
