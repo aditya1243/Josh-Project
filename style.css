@@ -453,32 +453,28 @@ body {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: white;
-    color: var(--primary-green);
-    border: var(--primary-green) solid 2px;
+    background: transparent; /* Make the button background transparent */
     cursor: pointer;
-    font-size: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 2;
+    padding: 0;
+    transition: all 0.3s ease;
+    border: none; /* Remove border */
+    box-shadow: none;
 }
 
-.popular-carousel-btn:hover {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: var(--primary-green);
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
+.popular-carousel-btn img {
+    width: 60px; /* Adjust the size of the SVG icon */
+    height: 60px;
+    transition: transform 0.3s ease; /* Optional: adds hover effect to icons */
 }
 
+
+.popular-carousel-btn img:hover {
+    transform: scale(1.2); /* Slight zoom-in effect for the icon */
+}
 
 .popular-items {
     padding: 40px 20px; 
@@ -497,7 +493,7 @@ body {
     text-align: center;
     font-size: 24px;
     font-weight: bolder;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 /* 5 */
@@ -718,7 +714,7 @@ body {
     padding: 50px 20px;
     text-align: center;
     gap: 30px;
-    background: linear-gradient(to bottom, #ffffff 65%, #d9fdd3 35%); 
+    background: linear-gradient(to bottom, #ffffff 65%, #C7EACC 35%); 
 }
 
 .video-container {
