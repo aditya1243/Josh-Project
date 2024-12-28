@@ -129,50 +129,14 @@ function renderCarouselItems() {
 }
 
 let currentIndex = 0;
-const itemWidth = 33.33; // Percentage width of a carousel item
-
-/*function updateCarousel() {
-    const track = document.querySelector('.popular-carousel-track');
-    track.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
-    updateActiveCard(); // Update the active card
-}
+const itemWidth = 33.33; 
 
 function updateActiveCard() {
     const items = document.querySelectorAll('.popular-carousel-item');
     items.forEach(item => item.classList.remove('active'));
 
     // Calculate the middle card index
-    const middleIndex = currentIndex + 1; // Assuming 3 cards are visible, the middle one is currentIndex + 1
-    if (items[middleIndex]) {
-        items[middleIndex].classList.add('active');
-    }
-}
-
-document.querySelector('.popular-carousel-btn.next').addEventListener('click', () => {
-    const totalItems = document.querySelectorAll('.popular-carousel-item').length;
-    if (currentIndex < totalItems - 3) {
-        currentIndex++;
-        updateCarousel();
-    }
-});
-
-document.querySelector('.popular-carousel-btn.prev').addEventListener('click', () => {
-    if (currentIndex > 0) {
-        currentIndex--;
-        updateCarousel();
-    }
-});
-
-// Initialize carousel
-renderCarouselItems();
-updateCarousel();
-*/
-function updateActiveCard() {
-    const items = document.querySelectorAll('.popular-carousel-item');
-    items.forEach(item => item.classList.remove('active'));
-
-    // Calculate the middle card index
-    const middleIndex = currentIndex + 1; // Assuming 3 cards are visible, the middle one is currentIndex + 1
+    const middleIndex = currentIndex + 1; 
     if (items[middleIndex]) {
         items[middleIndex].classList.add('active');
     }
@@ -186,7 +150,7 @@ function updateCarousel() {
     items.forEach((item) => item.classList.remove('active'));
     
     // Calculate the middle card and add the active class
-    const middleIndex = currentIndex + 1; // Assuming 3 cards are visible, the second card is the middle one
+    const middleIndex = currentIndex + 1; 
     if (items[middleIndex]) {
         items[middleIndex].classList.add('active');
     }
@@ -223,10 +187,10 @@ const playPauseBtn = document.getElementById('playPauseBtn');
 video.addEventListener('click', () => {
     if (video.paused) {
         video.play();
-        playPauseBtn.classList.remove('show'); // Hide play button
+        playPauseBtn.classList.remove('show'); 
     } else {
         video.pause();
-        playPauseBtn.classList.add('show'); // Show play button
+        playPauseBtn.classList.add('show'); 
     }
 });
 
@@ -234,10 +198,10 @@ video.addEventListener('click', () => {
 playPauseBtn.addEventListener('click', () => {
     if (video.paused) {
         video.play();
-        playPauseBtn.classList.remove('show'); // Hide play button
+        playPauseBtn.classList.remove('show'); 
     } else {
         video.pause();
-        playPauseBtn.classList.add('show'); // Show play button
+        playPauseBtn.classList.add('show');
     }
 });
 

@@ -453,7 +453,7 @@ body {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: transparent; /* Make the button background transparent */
+    background: transparent;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -461,19 +461,19 @@ body {
     z-index: 2;
     padding: 0;
     transition: all 0.3s ease;
-    border: none; /* Remove border */
+    border: none; 
     box-shadow: none;
 }
 
 .popular-carousel-btn img {
-    width: 60px; /* Adjust the size of the SVG icon */
+    width: 60px; 
     height: 60px;
-    transition: transform 0.3s ease; /* Optional: adds hover effect to icons */
+    transition: transform 0.3s ease; 
 }
 
 
 .popular-carousel-btn img:hover {
-    transform: scale(1.2); /* Slight zoom-in effect for the icon */
+    transform: scale(1.2); 
 }
 
 .popular-items {
@@ -520,8 +520,6 @@ body {
     z-index: 2; 
 }
 
-
-/* Modal Styles */
 /* Modal Styles */
 .modal {
     display: none; 
